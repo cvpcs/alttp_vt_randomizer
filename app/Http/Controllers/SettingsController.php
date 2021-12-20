@@ -219,8 +219,8 @@ class SettingsController extends Controller
                 'name' => $info['name'],
                 'author' => $info['author'],
                 'version' => $info['version'],
-                'file' => 'https://alttpr-assets.s3.us-east-2.amazonaws.com/' . $file,
-                'preview' => 'https://alttpr-assets.s3.us-east-2.amazonaws.com/' . $file . '.png',
+                'file' => '/s/' . $file,
+                'preview' => '/s/' . $file . '.png',
                 'tags' => $info['tags'] ?? [],
                 'usage' => $info['usage'] ?? []
             ];
