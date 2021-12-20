@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+command="/usr/bin/php"
+command_args="-S localhost:8000 server.php"
+command_background="true"
+command_user="alttprcade:alttprcade"
+directory="/var/lib/alttp_vt_randomizer"
+pidfile="/var/run/alttp_vt_randomizer.pid"
+name="aLttP VT Randomizer"
+
+depend() {
+	need localmount
+	provide alttp_vt_randomizer
+}

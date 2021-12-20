@@ -7,6 +7,7 @@
 /public/vendor
 /public/i/svg
 /public/images/vendor
+/public/s/
 /storage/*.key
 /resources/assets/js/*.generated.js
 /resources/js/*.generated.js
@@ -23,3 +24,5 @@
 /.vs
 *.sfc
 *.smc
+*.sqfs
+*.sqlite
