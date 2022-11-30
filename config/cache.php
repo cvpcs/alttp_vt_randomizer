@@ -49,7 +49,7 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'path' => storage_path('framework/cache'),
+            'path' => env('STORAGE_FWK_CACHE', storage_path('framework/cache')),
         ],
 
         'memcached' => [
