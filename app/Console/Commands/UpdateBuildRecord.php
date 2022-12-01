@@ -8,6 +8,7 @@ use ALttP\Support\Flips;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Process;
 
 class UpdateBuildRecord extends Command
@@ -106,7 +107,7 @@ class UpdateBuildRecord extends Command
             'hash' => $build->hash,
         ]);
 
-        file_put_contents(public_path(sprintf('bps/%s.bps', $build->hash)), $bps_data);
+	Storage::disk('bps')->put(sprintf('%s.bps', $build->hash), $bps_data);
 
         $build->bps = $bps_data;
         $build->save();

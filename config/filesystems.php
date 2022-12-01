@@ -52,6 +52,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'bps' => [
+            'driver' => 'local',
+            'root' => env('STORAGE_BPS', storage_path('app/bps')),
+            'url' => env('APP_URL') . '/bps',
+            'visibility' => 'public'
+        ],
+
         'sprites' => [
             'driver' => 'local',
             'root'   => resource_path('sprites'),
