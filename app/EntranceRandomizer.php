@@ -150,7 +150,7 @@ class EntranceRandomizer implements RandomizerContract
 
 		// possible temp fix
 		$spoiler = json_decode($er->spoiler, true);
-		$spoiler['meta']['build'] = Rom::BUILD;
+		$spoiler['meta']['build'] = Rom::$BUILD;
 		$spoiler['meta']['logic'] = 'er-no-glitches-' . static::VERSION;
 
 		$this->world->setSpoiler($spoiler);

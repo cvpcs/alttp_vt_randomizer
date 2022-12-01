@@ -202,8 +202,8 @@ class SettingsController extends Controller
     public function rom(): array
     {
         return [
-            'rom_hash' => Rom::HASH,
-            'base_file' => sprintf('/bps/%s.bps', Rom::HASH),
+            'rom_hash' => Rom::$HASH,
+            'base_file' => sprintf('/bps/%s.bps', Rom::$HASH),
         ];
     }
 

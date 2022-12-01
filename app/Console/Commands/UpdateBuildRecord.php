@@ -134,11 +134,8 @@ class UpdateBuildRecord extends Command
      */
     private function updateRomClassFile(Build $build): void
     {
-        file_put_contents(app_path('Rom.php'), preg_replace(
-            ["/const BUILD = '[\w-]*';/", "/const HASH = '\w*';/"],
-            ["const BUILD = '$build->build';", "const HASH = '$build->hash';"],
-            file_get_contents(app_path('Rom.php'))
-        ));
+        file_put_contents(storage_path('build_date.txt'), $build->build);
+        file_put_contents(storage_path('build_hash.txt'), $build->hash);
     }
 
     /**

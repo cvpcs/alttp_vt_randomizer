@@ -12,9 +12,10 @@ use Log;
  */
 class Rom
 {
-    const BUILD = '2021-09-04';
-    const HASH = 'e8447cbbe510754a1c572061d30c00f6';
     const SIZE = 2097152;
+
+    public static $BUILD = file_get_contents(storage_path('build_date.txt'));
+    public static $HASH = file_get_contents(storage_path('build_hash.txt'));
 
     private $tmp_file;
     private $credits;
@@ -32,9 +33,9 @@ class Rom
     public static function saveBuild(array $patch, $build = null, $hash = null): Build
     {
         $build = Build::firstOrNew([
-            'build' => $build ?? static::BUILD,
+            'build' => $build ?? static::$BUILD,
         ]);
-        $build->hash = $hash ?? static::HASH;
+        $build->hash = $hash ?? static::$HASH;
         $build->patch = json_encode($patch);
         $build->save();
 
@@ -48,7 +49,7 @@ class Rom
      */
     public static function getJsonPatchLocation(): string
     {
-        return storage_path(sprintf('patches/%s.json', self::HASH));
+        return storage_path(sprintf('patches/%s.json', self::$HASH));
     }
 
     /**
@@ -103,7 +104,7 @@ class Rom
      */
     public function checkMD5(): bool
     {
-        return $this->getMD5() === static::HASH;
+        return $this->getMD5() === static::$HASH;
     }
 
     /**

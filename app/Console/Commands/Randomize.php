@@ -145,7 +145,7 @@ class Randomize extends Command
 
             // break out for unrandomized base game
             if ($this->option('unrandomized')) {
-                $output_file = sprintf('%s/alttp-%s.sfc', $this->argument('output_directory'), Rom::BUILD);
+                $output_file = sprintf('%s/alttp-%s.sfc', $this->argument('output_directory'), Rom::$BUILD);
                 $rom->save($output_file);
                 $this->info(sprintf('ROM Saved: %s', $output_file));
 

@@ -216,7 +216,7 @@ class RandomizerController extends Controller
             'generated' => $world->getSeedRecord()->created_at ? $world->getSeedRecord()->created_at->toIso8601String() : now()->toIso8601String(),
             'seed' => $world->getSeedRecord(),
             'size' => $spoiler['meta']['size'] ?? 2,
-            'current_rom_hash' => Rom::HASH,
+            'current_rom_hash' => Rom::$HASH,
         ];
     }
 }

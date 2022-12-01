@@ -945,7 +945,7 @@ abstract class World
             'accessibility' => $this->config('accessibility'),
             'rom_mode' => $this->config('rom.logicMode', $this->config('logic')),
             'goal' => $this->config('goal'),
-            'build' => Rom::BUILD,
+            'build' => Rom::$BUILD,
             'mode' => $this->config('mode.state'),
             'weapons' => $this->config('mode.weapons'),
             'world_id' => $this->id,
@@ -1443,7 +1443,7 @@ abstract class World
     {
         $this->seed->logic = Randomizer::LOGIC;
         $this->seed->game_mode = $this->config['logic'];
-        $this->seed->build = Rom::BUILD;
+        $this->seed->build = Rom::$BUILD;
         $this->seed->save();
 
         return $this->seed->hash;
