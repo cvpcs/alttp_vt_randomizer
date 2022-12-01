@@ -14,8 +14,8 @@ class Rom
 {
     const SIZE = 2097152;
 
-    public static $BUILD = file_get_contents(storage_path('build_date.txt'));
-    public static $HASH = file_get_contents(storage_path('build_hash.txt'));
+    public static $BUILD;
+    public static $HASH;
 
     private $tmp_file;
     private $credits;
@@ -3043,3 +3043,6 @@ class Rom
         unlink($this->tmp_file);
     }
 }
+
+Rom::$BUILD = file_get_contents(storage_path('build_date.txt'));
+Rom::$HASH = file_get_contents(storage_path('build_hash.txt'));
