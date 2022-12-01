@@ -59,7 +59,7 @@ return [
     |
     */
 
-    'files' => env('STORAGE_FWK_SESSIONS', storage_path('framework/sessions')),
+    'files' => storage_path('framework/sessions'),
 
     /*
     |--------------------------------------------------------------------------
