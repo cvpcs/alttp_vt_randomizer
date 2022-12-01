@@ -41,6 +41,9 @@ $app->singleton(
     ALttP\Exceptions\Handler::class
 );
 
+// override the storage path if provided
+$app->useStoragePath(env('APP_STORAGE', $app->storagePath()));
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
