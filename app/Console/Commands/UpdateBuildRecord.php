@@ -18,7 +18,7 @@ class UpdateBuildRecord extends Command
      *
      * @var string
      */
-    protected $signature = 'alttp:updatebuildrecord {file?} {build?}';
+    protected $signature = 'alttp:updatebuildrecord {--file=} {--build=}';
 
     /**
      * The console command description.
@@ -34,7 +34,7 @@ class UpdateBuildRecord extends Command
      */
     public function handle()
     {
-        $romFile = $this->argument('file');
+        $romFile = $this->option('file');
 
         if (!is_string($romFile) && $romFile !== null) {
             $this->error('argument not string');
@@ -76,7 +76,7 @@ class UpdateBuildRecord extends Command
             }
         }
 
-        $build_date = $this->argument('build');
+        $build_date = $this->option('build');
 
         if (!$build_date) {
             $git_log = new Process(
