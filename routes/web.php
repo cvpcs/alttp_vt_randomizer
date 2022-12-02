@@ -6,6 +6,14 @@ use Illuminate\Support\Facades\Storage;
 
 Route::get('base_rom/settings', 'SettingsController@rom');
 
+Route::get('bps/{file}', static function ($file) {
+    $storage = Storage::disk('bps');
+    if ($storage->exists($file)) {
+        return $storage->get($file);
+    }
+    abort(404);
+});
+
 Route::get('customizer/settings', 'SettingsController@customizer');
 
 Route::get('randomizer/settings', 'SettingsController@item');
